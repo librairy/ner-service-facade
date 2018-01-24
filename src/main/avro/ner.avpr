@@ -1,0 +1,32 @@
+{"namespace": "org.librairy.service.ner.facade.model",
+ "protocol": "NerService",
+
+ "types": [
+    {"name": "Class", "type": "enum","symbols": ["ORGANIZATION","LOCATION","PERSON","MISC","MONEY","PERCENT","DATE","TIME","DISEASE","PROTEIN","DRUG","COMPOUND","GENE"]},
+    {"name": "Entity", "type": "record", "fields": [
+      {"name":"text","type":"string"},
+      {"name":"class","type":"Class"},
+      {"name":"type","type":"string"}
+    ]},
+    {"name": "Annotation", "type": "record", "fields": [
+      {"name":"id","type":"string"},
+      {"name":"text","type":"string"},
+      {"name":"class","type":"Class"},
+      {"name":"type","type":"string"},
+      {"name":"start","type":"string"},
+      {"name":"end","type":"string"},
+      {"name":"references","type":{"type" : "array","items":"string"}}
+    ]}
+ ],
+
+ "messages": {
+     "identify": {
+       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"Class"}}],
+       "response": {"type" : "array","items":"Entity"}
+     },
+     "annotate":{
+       "request": [{"name": "text", "type": "string"},{"name": "filter", "type": {"type" : "array","items":"Class"}}],
+       "response": {"type" : "array","items":"Annotation"}
+     }
+ }
+}
