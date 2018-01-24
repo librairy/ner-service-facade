@@ -18,7 +18,7 @@ public class AnnotationResult {
 
     @JsonProperty(required = true)
     @ApiModelProperty(notes = "list of annotations created by the service", required = true)
-    public List<Annotation> getAnnotatedText() {
+    public List<Annotation> getAnnotations() {
         return annotations;
     }
 }

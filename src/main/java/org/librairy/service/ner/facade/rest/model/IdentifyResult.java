@@ -18,7 +18,7 @@ public class IdentifyResult {
 
     @JsonProperty(required = true)
     @ApiModelProperty(notes = "Entities discovered by the service", required = true)
-    public List<Entity> getProcessedText() {
+    public List<Entity> getEntities() {
         return entities;
     }
 }
